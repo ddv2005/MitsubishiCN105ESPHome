@@ -17,6 +17,7 @@ void CN105Climate::sendFirstConnectionPacket() {
 
         // Choix du mode de handshake: standard (0x5A) ou installateur (0x5B)
         packet[1] = this->installer_mode_effective_ ? 0x5B : 0x5A;
+        packet[5] = this->installer_mode_effective_ ? 0xC9 : 0xCA;
         // CONNECT a un checksum pré-calculé dans la constante; si on modifie l'octet commande, on doit le recalculer.
         packet[CONNECT_LEN - 1] = checkSum(packet, CONNECT_LEN - 1);
 
