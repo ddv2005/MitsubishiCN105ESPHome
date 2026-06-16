@@ -38,8 +38,8 @@ void CN105Climate::sendFirstConnectionPacket() {
                 // Fallback automatique: si le mode installateur est demandé mais que la PAC ignore 0x5B,
                 // on retente une fois en mode standard (0x5A) pour préserver la connectivité.
                 if (this->installer_mode_ && this->installer_mode_effective_ && !this->installer_mode_fallback_done_) {
-                    this->installer_mode_effective_ = false;
-                    this->installer_mode_fallback_done_ = true;
+                    //this->installer_mode_effective_ = false;
+                    //this->installer_mode_fallback_done_ = true;
                     ESP_LOGW(LOG_CONN_TAG, "No reply to installer handshake (0x5B). Falling back to standard handshake (0x5A).");
                 }
                 ESP_LOGI(LOG_CONN_TAG, "Reinitializing UART and trying to connect again...");
